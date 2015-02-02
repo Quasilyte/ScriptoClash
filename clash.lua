@@ -1,6 +1,6 @@
 local x = os.clock()
 
-array = {}
+local array = {}
 array[1] = {}
 array[2] = {}
 
@@ -17,12 +17,11 @@ function readingData(fileName, num)
 end
 
 readingData("input/file1.txt", 1)
-readingData("input/file2.txt", 2)
 
-min = string.len(array[1][1])
-max = min
+local min = string.len(array[1][1])
+local max = min
 for i = 2, #array[1] do
-    size = string.len(array[1][i])
+    local size = string.len(array[1][i])
 
     if size > max then
         max = size
@@ -33,7 +32,7 @@ for i = 2, #array[1] do
     end
 end
 
-str = ""
+local str = ""
 for i = 1, #array[1] do
     if string.byte(array[1][i], 1) >= 97 and 
         string.byte(array[1][i], 1) <= 101 then
@@ -41,8 +40,9 @@ for i = 1, #array[1] do
     end
 end
 
-cSlice = #array[2] / 2
-sumSlice = 0
+readingData("input/file2.txt", 2)
+local cSlice = #array[2] / 2
+local sumSlice = 0
 for i = 1, cSlice do
     array[2][i] = (array[2][i] * array[2][i + cSlice])^0.5
     sumSlice = sumSlice + array[2][i]
