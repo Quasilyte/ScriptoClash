@@ -2,7 +2,7 @@
 
 // Author: Quasilyte
 
-// $timestamp = microtime();
+$timestamp = exec('date +%s%N');
 
 // Массив слов.
 $map[0] = explode("\n", file_get_contents('input/file1.txt'));
@@ -36,5 +36,5 @@ for($i = 0, $j = 35, $sum = 0; $i < $bound; ++$i, ++$j) {
   $sum += $map[1][$i];
 }
 
-// $timestamp = microtime() - $timestamp;
-// echo "$timestamp\n";
+$timestamp = exec('date +%s%N') - $timestamp;
+echo "$timestamp\n";

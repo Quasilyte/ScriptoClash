@@ -1,5 +1,9 @@
 ; Author: Quasilyte
 
+(defvar timestamp (trivial-shell:shell-command "date +%s%N"))
+
+(print (class-of timestamp))
+
 ; Вернуть ascii код первого символа строки str.
 (defmacro ascii0 (str)
   `(char-code (char ,str 0)))
