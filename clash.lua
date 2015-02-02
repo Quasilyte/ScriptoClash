@@ -1,4 +1,4 @@
-local x = os.clock()
+-- local x = os.clock()
 
 array = {}
 array[1] = {}
@@ -35,7 +35,7 @@ end
 
 str = ""
 for i = 1, #array[1] do
-    if string.byte(array[1][i], 1) >= 97 and 
+    if string.byte(array[1][i], 1) >= 97 and
         string.byte(array[1][i], 1) <= 101 then
         str = str .. array[1][i] .. "_"
     end
@@ -48,4 +48,4 @@ for i = 1, cSlice do
     sumSlice = sumSlice + array[2][i]
 end
 
-print(string.format("elapsed time: %.6f\n", os.clock() - x))
+-- print(string.format("elapsed time: %.6f\n", os.clock() - x))
