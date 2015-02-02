@@ -31,12 +31,12 @@ You can check the 'spell' in the results.txt.
 
 ((4)) Splice second sub array into 2 chunks of 35 elements.
 Let's call those 2 arrays as slices.
-Perform an & (bitwise AND) operation on every pair of both slices.
+Perform a square root taking on every pair sum of both slices.
 
 E.g.:
 
 cycle for every element with 'i' index {
-  result[i] = slice1[i] & slice2[i]
+  result[i] = sqrt ( slice1[i] * slice2[i] )
 }
 
 ((5)) Calculate a sum of all resultive elements.

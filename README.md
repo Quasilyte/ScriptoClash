@@ -6,6 +6,11 @@ Accuracy is pretty low, but still, it's only another synthetic test,<br>
 it proves nothing.<br>
 
 Tests were run on 2 computers, both having Linux Mint as OS.<br>
+<br>
+
+Glorious participants (alphabet order):
+* bontequero
+* Quasilyte
 
 <table>
   <tr>
@@ -16,14 +21,14 @@ Tests were run on 2 computers, both having Linux Mint as OS.<br>
 
   <tr>
     <td>PHP</td>
-    <td>0.000356</td>
+    <td>0.000378</td>
     <td>???</td>
   </tr>
 
   <tr>
     <td>Lua</td>
     <td>???</td>
-    <td>???</td>
+    <td>0.000918</td>
   </tr>
 
   <tr>
