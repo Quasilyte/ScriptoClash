@@ -48,4 +48,4 @@ for i = 1, cSlice do
     sumSlice = sumSlice + array[2][i]
 end
 
-print(string.format("elapsed time: %.6f\n", os.clock() - x))
+print(string.format("elapsed time: %.7f\n", (os.clock() - x)/10))
