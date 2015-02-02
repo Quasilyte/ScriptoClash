@@ -1,0 +1,52 @@
+((1)) Read contents of input files into array of 2 elements, thats it,
+each of two element contain another array inside. Separate elements from
+files by newline.
+
+Something like:
+
+[array]{
+  [0] => [array]{
+    [0] => 'Lorem',
+    [1] => 'ipsum',
+    ...
+    [68] => 'laborum'
+  },
+  [1] => [array]{
+    [0] => 245,
+    [1] => 23,
+    ...
+    [69] => 500
+  }
+}
+
+((2)) Scan the array of words for the longest and shortest words.
+You need only find the number values.
+The longest there is - 13, the shortest is 2.
+
+((3)) Create a string from concatenations of all words from array[0]
+which starts with a || b || c || d || e.
+After each word (even after the last one) you must put an underscore (_);
+
+You can check the 'spell' in the results.txt.
+
+((4)) Splice second sub array into 2 chunks of 35 elements.
+Let's call those 2 arrays as slices.
+Perform an & (bitwise AND) operation on every pair of both slices.
+
+E.g.:
+
+cycle for every element with 'i' index {
+  result[i] = slice1[i] & slice2[i]
+}
+
+((5)) Calculate a sum of all resultive elements.
+
+So:
+
+foreach result as num {
+  sum += num
+}
+
+((6)) Print runtime to the screen. Microseconds will do.
+
+Example output: 0.000501...

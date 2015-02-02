@@ -1,0 +1,84 @@
+min length: 2
+max length: 13
+
+the spell is:
+
+dolor_amet_consectetur_adipisicing_elit_do_eiusmod_et_dolore_aliqua_enim_ad_exercitation_aliquip_ex_ea_commodo_consequat_aute_dolor_esse_cillum_dolore_eu_cupidatat_culpa_deserunt_anim_est_
+
+zero elements after bitwise AND operation on slice1 and slice2: 5
+sum of those elements: 9580
+
+the resultive array (slice1[...] & slice2[...]):
+
+array(35) {
+  [0]=>
+  int(85)
+  [1]=>
+  int(6)
+  [2]=>
+  int(0)
+  [3]=>
+  int(20)
+  [4]=>
+  int(68)
+  [5]=>
+  int(32)
+  [6]=>
+  int(16)
+  [7]=>
+  int(40)
+  [8]=>
+  int(144)
+  [9]=>
+  int(3)
+  [10]=>
+  int(281)
+  [11]=>
+  int(32)
+  [12]=>
+  int(8)
+  [13]=>
+  int(3218)
+  [14]=>
+  int(0)
+  [15]=>
+  int(258)
+  [16]=>
+  int(404)
+  [17]=>
+  int(33)
+  [18]=>
+  int(36)
+  [19]=>
+  int(7)
+  [20]=>
+  int(3204)
+  [21]=>
+  int(1)
+  [22]=>
+  int(539)
+  [23]=>
+  int(41)
+  [24]=>
+  int(18)
+  [25]=>
+  int(0)
+  [26]=>
+  int(8)
+  [27]=>
+  int(98)
+  [28]=>
+  int(68)
+  [29]=>
+  int(592)
+  [30]=>
+  int(0)
+  [31]=>
+  int(0)
+  [32]=>
+  int(32)
+  [33]=>
+  int(272)
+  [34]=>
+  int(16)
+}
