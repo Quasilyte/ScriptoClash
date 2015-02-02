@@ -31,15 +31,11 @@ foreach($map[0] as $word) {
   }
 }
 
-
-$elemCount = count($map[1]) / 2;
-$vector1 = array_slice($map[1], 0, $elemCount);
-$vector2 = array_slice($map[1], $elemCount, $elemCount);
-
+$bound = count($map[1]) / 2;
 // Конъюнкция и сумма массивов [0...34] & [35..69].
-for($i = 0, $sum = 0; $i < $elemCount; ++$i) {
-  $vector1[$i] &= (int)$vector2[$i];
-  $sum += $vector1[$i];
+for($i = 0, $j = 35, $sum = 0; $i < $bound; ++$i, ++$j) {
+  $map[1][$i] &= $map[1][$j];
+  $sum += $map[1][$i];
 }
 
 $timestamp = microtime() - $timestamp;
