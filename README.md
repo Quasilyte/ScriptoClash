@@ -22,12 +22,12 @@ Glorious participants (alphabet order):
   <tr>
     <td>PHP</td>
     <td>0.000378</td>
-    <td>???</td>
+    <td>0.000282</td>
   </tr>
 
   <tr>
     <td>Lua</td>
-    <td>???</td>
+    <td>0.000400</td>
     <td>0.000918</td>
   </tr>
 
