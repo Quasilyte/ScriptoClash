@@ -1,8 +1,6 @@
 <?php
 
-/*
-* Author: Iskander Sharipov
-*/
+// Author: Quasilyte
 
 $timestamp = microtime();
 
@@ -34,11 +32,9 @@ foreach($map[0] as $word) {
 $bound = count($map[1]) / 2;
 // Конъюнкция и сумма массивов [0...34] & [35..69].
 for($i = 0, $j = 35, $sum = 0; $i < $bound; ++$i, ++$j) {
-  $map[1][$i] &= $map[1][$j];
+  $map[1][$i] = sqrt($map[1][$i] * $map[1][$j]);
   $sum += $map[1][$i];
 }
 
 $timestamp = microtime() - $timestamp;
 echo "$timestamp\n";
-
-?>
