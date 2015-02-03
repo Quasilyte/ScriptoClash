@@ -21,7 +21,7 @@ Glorious participants (alphabet order):
 
   <tr>
     <td>PHP</td>
-    <td>0.000378</td>
+    <td>49.06939</td>
     <td>0.000282</td>
   </tr>
 
