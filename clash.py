@@ -1,7 +1,7 @@
 from math import sqrt
 from os import system
 
-system('date +%s%N > buf/ts2 2>&1')
+system('date +%s%N > buf/ts1 2>&1')
 
 array = ([], [])
 vowel = ('a', 'e', 'i', 'o', 'u')

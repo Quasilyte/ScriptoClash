@@ -45,7 +45,7 @@ Glorious participants (alphabet order):
 
   <tr>
     <td>Python</td>
-    <td>???</td>
+    <td>45.76715</td>
     <td>???</td>
   </tr>
 
