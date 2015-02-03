@@ -1,4 +1,4 @@
-((1)) Execute shell command 'date +%s%N > buf/ts1.txt 2>&1'.
+((1)) Execute shell command 'date +%s%N > buf/ts1 2>&1'.
 
 ((2)) Read contents of input files into array of 2 elements, thats it,
 each of two element contain another array inside. Separate elements from
@@ -50,14 +50,12 @@ foreach result as num {
   sum += num
 }
 
-((7)) Implement Levenshtein Distance function.
-You must use recursive algorithm.
+((7)) Implement recursive ackermann function.
+https://en.wikipedia.org/wiki/Ackermann_function
 
-The argument is 'spell' string (pt.4).
-Good example at wiki: http://en.wikipedia.org/wiki/Levenshtein_distance
 Remember: recursion is obligatory!
 
-((8)) Execute shell command 'date +%s%N > buf/ts2.txt 2>&1'.
+((8)) Execute shell command 'date +%s%N > buf/ts2 2>&1'.
 Now, read both output files contents and store them in variables.
 After that, evaluate program runtime.
 Divide result by 100 thousands to make it look pretty.
