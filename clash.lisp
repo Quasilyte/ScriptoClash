@@ -1,5 +1,7 @@
 ; Author: Quasilyte
 
+(ext:run-shell-command "date +%s%N")
+
 ; Вернуть ascii код первого символа строки str.
 (defmacro ascii0 (str)
   `(char-code (char ,str 0)))
@@ -60,3 +62,4 @@
 )
 
 ; 0.010
+(ext:run-shell-command "date +%s%N")

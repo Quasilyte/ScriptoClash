@@ -1,4 +1,4 @@
-local x = os.clock()
+-- local x = os.clock()
 
 local array = {}
 array[1] = {}
@@ -48,4 +48,4 @@ for i = 1, cSlice do
     sumSlice = sumSlice + array[2][i]
 end
 
-print(string.format("elapsed time: %.7f\n", os.clock() - x))
+-- print(string.format("elapsed time: %.7f\n", os.clock() - x))
