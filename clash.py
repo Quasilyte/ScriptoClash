@@ -65,6 +65,8 @@ system('date +%s%N > buf/ts2 2>&1')
 f1 = open('buf/ts1', 'r')
 f2 = open('buf/ts2', 'r')
 ts = (int(f2.read(19)) - int(f1.read(19))) / 100000.
+f1.close()
+f2.close()
 
 ##################################################
 
