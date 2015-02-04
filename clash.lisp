@@ -1,3 +1,4 @@
+; #!/usr/bin/sbcl --script
 ; Author: Quasilyte
 
 (ext:run-shell-command "date +%s%N > buf/ts1 2>&1")
@@ -50,7 +51,7 @@
   ; Сборка "заклинания".
   (setq ch (ascii0 (aref (words) i)))
   (cond ((and (>= ch 97) (<= ch 101))
-    (setf *spell* (concatenate 'string *spell* (aref (words) i) "_"))
+    ; (setf *spell* (concatenate 'string *spell* (aref (words) i) "_"))
     (loop for c across (aref (words) i) do
       (if (or (char= #\a c) (char= #\e c) (char= #\i c) (char= #\o c) (char= #\u c))
         (incf *cs*))))))
