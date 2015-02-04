@@ -22,7 +22,7 @@ Glorious participants (alphabet order):
   <tr>
     <td>PHP</td>
     <td>49.06939</td>
-    <td>0.000282</td>
+    <td>38.02066</td>
   </tr>
 
   <tr>
@@ -46,7 +46,7 @@ Glorious participants (alphabet order):
   <tr>
     <td>Python</td>
     <td>???</td>
-    <td>???</td>
+    <td>40.3447</td>
   </tr>
 
   <tr>
