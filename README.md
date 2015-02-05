@@ -28,7 +28,7 @@ Glorious participants (alphabet order):
   <tr>
     <td>Lua</td>
     <td>0.000400</td>
-    <td>0.000918</td>
+    <td>42.48064</td>
   </tr>
 
   <tr>

@@ -1,19 +1,19 @@
--- local x = os.clock()
+os.execute("date +%s%N > buf/ts1 2>&1")
 
 local array = {}
 array[1] = {}
 array[2] = {}
 
-function readingData(fileName, num)
-    f1 = io.open(fileName, "r")
+local function readingData(fileName, num)
+    local f = io.open(fileName, "r")
 
     i = 0
-    for line in f1:lines() do
+    for line in f:lines() do
         i = i + 1
         array[num][i] = line
     end
 
-    f1:close()
+    f:close()
 end
 
 readingData("input/file1.txt", 1)
@@ -33,10 +33,21 @@ for i = 2, #array[1] do
 end
 
 local str = ""
+local vowel = {'a', 'e', 'i', 'o', 'u'}
+local cs = 0
+
 for i = 1, #array[1] do
-    if string.byte(array[1][i], 1) >= 97 and
-        string.byte(array[1][i], 1) <= 101 then
+    cAscii = string.byte(array[1][i], 1)
+    if cAscii >= 97 and cAscii <= 101 then
         str = str .. array[1][i] .. "_"
+
+        for c in array[1][i]:gmatch"." do
+            for j = 1, 5 do
+                if c == vowel[j] then
+                    cs = cs + 1
+                end
+            end
+        end
     end
 end
 
@@ -48,4 +59,28 @@ for i = 1, cSlice do
     sumSlice = sumSlice + array[2][i]
 end
 
--- print(string.format("elapsed time: %.7f\n", os.clock() - x))
+local ack
+function ack(M,N)
+    if M == 0 then return N + 1 end
+    if N == 0 then return ack(M-1,1) end
+    return ack(M-1,ack(M, N-1))
+end
+
+local ackRez = ack(3, 3)
+
+os.execute("date +%s%N > buf/ts2 2>&1")
+
+local f1 = io.open("buf/ts1", "r")
+local f2 = io.open("buf/ts2", "r")
+ts = (f2:read("*n") - f1:read("*n")) / 100000.
+f1:close()
+f2:close()
+
+--------------------------------------------
+
+print("elapsed: " .. ts)
+print("max length: " .. max)
+print("min length: " .. min)
+print("spell length: " .. string.len(str) .. " checksum: " .. cs)
+print("sum: " .. sumSlice)
+print("ackerman: " .. ackRez)
