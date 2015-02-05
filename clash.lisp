@@ -1,92 +1,73 @@
-; #!/usr/bin/sbcl --script
-; Author: Quasilyte
+(defmacro unixts (f-name)
+ `(with-open-file (f ,f-name :direction :output :if-exists :supersede)
+    (sb-ext:run-program "date" '("+%s%N") :output f :search t)))
 
-(ext:run-shell-command "date +%s%N > buf/ts1 2>&1")
+(defmacro ts-into (f-name dst)
+ `(with-open-file (file ,f-name :direction :input)
+    (setq ,dst (parse-integer (read-line file nil)))))
 
-; Вернуть ascii код первого символа строки str.
+(defmacro f-into (f-name dst)
+ `(with-open-file (f ,f-name)
+    (let ((l (file-length f)))
+      (setq ,dst (make-string l))
+      (values ,dst (read-sequence ,dst f)))))
+
 (defmacro ascii0 (str)
-  `(char-code (char ,str 0)))
+ `(char-code (char ,str 0)))
 
-; Для упрощения обращения к 0 элементу массива *map*.
-(defmacro words ()
-  (aref *map* 0))
+(defmacro w-process ()
+ `(let ((l 0) (code #\0))
+    (with-input-from-string (words rbuf)
+      (loop for word = (read-line words nil)
+        while word do
+          (setq l (length word))
+          (if (> l lmax) (setq lmax l)
+            (if (< l lmin) (setq lmin l)))
+          (setq code (ascii0 word))
+          (cond ((and (>= code 97) (<= code 101))
+            (setf spell (concatenate 'string spell word "_"))
+            (loop for ch across word do
+              (if (find ch *vowels*)
+              (incf cs)))))))))
 
-; Для упрощения обращения к 1 элементу массива *map*.
-(defmacro nums ()
-  (aref *map* 1))
+(defmacro d-conv ()
+ `(let ((i -1))
+    (with-input-from-string (nums rbuf)
+    (loop for num = (read-line nums nil)
+      while num do
+        (setf (aref arr (incf i)) (parse-integer num))))))
 
-; Callback, который ничего не делает.
-(defun str (arg)
-  arg)
+(defmacro d-process ()
+ `(let ((slice1 (make-array 250 :displaced-to arr :displaced-index-offset 0))
+  (slice2 (make-array 250 :displaced-to arr :displaced-index-offset 250)))
+    (loop for i from 0 to 249 do
+      (setq sum (+ sum (sqrt (* (aref slice1 i) (aref slice2 i))))))))
 
-; Callback, который берёт строку и возвращает integer.
-(defun int (arg)
-  (parse-integer arg))
-
-; Считать весь файл в массив. Возвращает этот самый массив.
-(defun fread(name lines callback)
-  (setq arr (make-array `(,lines)))
-  (setq i 0)
-  (with-open-file (file name :direction :input)
-    (loop for line = (read-line file nil)
-      while line do
-        (setf (aref arr i) (funcall callback line))
-        (incf i)))
-  arr)
-
-(defvar *map* (make-array '(2)))
-(setf (aref *map* 0) (fread "input/file1.txt" 150 #'str))
-(setf (aref *map* 1) (fread "input/file2.txt" 500 #'int))
-
-(defvar *spell* "")
-(defvar *cs* 0)
-
-(defvar maxLen 0)
-(defvar minLen 255)
-
-(loop for i from 0 to 149 do
-  (setq len (length (aref (words) i)))
-  (if (> len maxLen) (setf maxLen len)
-    (if (< len minLen) (setf minLen len)))
-  ; Сборка "заклинания".
-  (setq ch (ascii0 (aref (words) i)))
-  (cond ((and (>= ch 97) (<= ch 101))
-    ; (setf *spell* (concatenate 'string *spell* (aref (words) i) "_"))
-    (loop for c across (aref (words) i) do
-      (if (or (char= #\a c) (char= #\e c) (char= #\i c) (char= #\o c) (char= #\u c))
-        (incf *cs*))))))
-
-(defvar *sum* 0.0)
-(defvar bound (/ (length (nums)) 2))
-(defvar slice1(make-array bound :displaced-to (nums) :displaced-index-offset 0))
-(defvar slice2(make-array bound :displaced-to (nums) :displaced-index-offset 250))
-
-; Действия над массивами (слайсами) чисел.
-(loop for i from 0 to (decf bound) do
-  (setf (aref slice1 i) (sqrt (* (aref slice1 i) (aref slice2 i))))
-  (setf *sum* (+ *sum* (aref slice1 i)))
-)
+(defvar *vowels* '(#\a #\e #\i #\o #\u))
 
 (defun acker (a b)
   (cond ((= 0 a) (+ b 1))
     ((and a (= 0 b)) (acker (- a 1) 1))
     ((and a b) (acker (- a 1) (acker a (- b 1))))))
 
-(defvar *ackermann* (acker 3 3))
+(defun main()
+  (let ((rbuf "") (spell "") (cs 0)
+  (lmax 0) (lmin 99) (sum 0.0)
+  (ts1 0.0) (ts2 0.0) (arr (make-array 500)) (ackermann 0))
+    (unixts "buf/ts1")
+    (f-into "input/file1.txt" rbuf)
+    (w-process)
+    (f-into "input/file2.txt" rbuf)
+    (d-conv)
+    (d-process)
+    (setq ackermann (acker 3 3))
+    (unixts "buf/ts2")
+    (ts-into "buf/ts1" ts1)
+    (ts-into "buf/ts2" ts2)
+    (format t "elapsed: ~f~%" (/ (- ts2 ts1) 100000))
+    (format t "max length: ~d, min length ~d~%" lmax lmin)
+    (format t "spell length: ~d, checksum: ~d~%" (length spell) cs)
+    (format t "sum ~d~%" sum)
+    (format t "ackermann: ~d~%" ackermann)))
 
-(ext:run-shell-command "date +%s%N > buf/ts2 2>&1")
-
-(defvar *ts1* 0)
-(defvar *ts2* 0)
-(with-open-file (file "buf/ts1" :direction :input)
-  (setf *ts1* (parse-integer (read-line file nil))))
-(with-open-file (file "buf/ts2" :direction :input)
-  (setf *ts2* (parse-integer (read-line file nil))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(format t "elapsed: ~f~%" (/ (- *ts2* *ts1*) 100000))
-(format t "max length: ~d, min length ~d~%" maxLen minLen)
-(format t "spell length: ~d, checksum: ~d~%" (length *spell*) *cs*)
-(format t "sum ~d~%" *sum*)
-(format t "ackermann: ~d~%" *ackermann*)
+(main)

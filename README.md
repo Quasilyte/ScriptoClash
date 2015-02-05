@@ -38,9 +38,9 @@ Glorious participants (alphabet order):
   </tr>
 
   <tr>
-    <td>Lisp</td>
-    <td>???</td>
-    <td>???</td>
+    <td>Lisp*</td>
+    <td>43 - 300</td>
+    <td>no matter</td>
   </tr>
 
   <tr>
@@ -56,3 +56,7 @@ Glorious participants (alphabet order):
   </tr>
 
 </table>
+
+*Lisp is the slowest. The different approaches are showing different<br>
+results, but best I got so far is 0.0037 real time (vs 0.0016 on php).<br>
+Just to mention, the most fair ways given x5 times worse outputs.<br>
