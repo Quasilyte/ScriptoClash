@@ -34,7 +34,7 @@ Glorious participants (alphabet order):
   <tr>
     <td>Perl</td>
     <td>57.62069</td>
-    <td>???</td>
+    <td>86.5259</td>
   </tr>
 
   <tr>
