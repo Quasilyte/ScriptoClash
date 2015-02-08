@@ -52,7 +52,7 @@ Glorious participants (alphabet order):
   <tr>
     <td>Ruby</td>
     <td>???</td>
-    <td>???</td>
+    <td>40.98787</td>
   </tr>
 
 </table>
