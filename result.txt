@@ -5,6 +5,6 @@ the spell is: dolor_amet_consectetur_adipisicing_elit_do_eiusmod_et_dolore_aliqu
 
 spell length: 281, checksum (vowels): 112
 
-sum of those elements: 16007761.336297 +- (can vary)
+sum of those elements: 1158742.0816259 +- (can vary)
 
 ackermann(3, 3): 61

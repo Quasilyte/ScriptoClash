@@ -36,10 +36,8 @@ foreach($map[0] as $word) {
   }
 }
 
-$bound = count($map[1]) / 2;
-for($i = 0, $j = $bound / 2, $sum = 0; $i < $bound; ++$i, ++$j) {
-  $map[1][$i] = sqrt($map[1][$i] * $map[1][$j]);
-  $sum += $map[1][$i];
+for($i = 0, $sum = 0; $i < 250; ++$i) {
+  $sum += sqrt($map[1][$i] * $map[1][$i + 250]);
 }
 
 function acker($a, $b) {
