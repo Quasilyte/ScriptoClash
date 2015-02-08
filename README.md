@@ -33,14 +33,14 @@ Glorious participants (alphabet order):
 
   <tr>
     <td>Perl</td>
-    <td>???</td>
+    <td>57.62069</td>
     <td>???</td>
   </tr>
 
   <tr>
     <td>Lisp*</td>
-    <td>43 - 300</td>
-    <td>no matter</td>
+    <td>N/A</td>
+    <td>N/A</td>
   </tr>
 
   <tr>

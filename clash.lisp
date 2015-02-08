@@ -1,3 +1,5 @@
+; Author: Quasilyte
+
 (defmacro unixts (f-name)
  `(with-open-file (f ,f-name :direction :output :if-exists :supersede)
     (sb-ext:run-program "date" '("+%s%N") :output f :search t)))
