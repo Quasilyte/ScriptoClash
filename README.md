@@ -33,14 +33,14 @@ Glorious participants (alphabet order):
 
   <tr>
     <td>Perl</td>
-    <td>???</td>
+    <td>57.62069</td>
     <td>???</td>
   </tr>
 
   <tr>
-    <td>Lisp</td>
-    <td>???</td>
-    <td>???</td>
+    <td>Lisp*</td>
+    <td>N/A</td>
+    <td>N/A</td>
   </tr>
 
   <tr>
@@ -56,3 +56,7 @@ Glorious participants (alphabet order):
   </tr>
 
 </table>
+
+*Lisp is the slowest. The different approaches are showing different<br>
+results, but best I got so far is 0.0037 real time (vs 0.0016 on php).<br>
+Just to mention, the most fair ways given x5 times worse outputs.<br>
